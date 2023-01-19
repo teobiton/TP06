@@ -12,15 +12,15 @@
 /* Extern variables declaration */
 extern mqd_t msgQ;
 
-void *converter (void * arg)
+void *printer (void * arg)
 {
   /* Private variable */
-  digit_t * received_digit;
+  digit_t received_digit;
 
   while (1) {
 
     /* Receive the translated digit */
-    if ( mq_receive(msgQ, &received_digit, sizeof received_digit, 0) != -1) {
+    if ( mq_receive(msgQ, received_digit, sizeof received_digit, 0) != -1) {
         
         /* Display the translated digit */
         printf("Translated digit: %s\n", received_digit);

@@ -29,7 +29,7 @@ void *converter (void * arg)
     translated_pushed_number = translated_digits[pushed_number];
 
     /* Send the translated digit */
-    if ( mq_send(msgQ, &translated_pushed_number, sizeof translated_pushed_number, 0) == -1) {
+    if ( mq_send(msgQ, translated_pushed_number, sizeof translated_pushed_number, 0) == -1) {
         perror("mq_send() failed.");
     }
 
