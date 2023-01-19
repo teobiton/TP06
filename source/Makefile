@@ -14,7 +14,7 @@ SOURCES := $(wildcard src/*.c src/*.cpp)
 OBJECTS := $(patsubst src%,obj%, $(patsubst %.c,%.o, $(patsubst %.cpp,%.o,$(SOURCES))))
 
 INCLUDE := -I.
-LIBPATH := -pthread
+LIBPATH := -pthread -lrt
 LIBS :=
 
 FLAGS := -Wall
