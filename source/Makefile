@@ -1,3 +1,5 @@
+# Makefile by @freelsn on gitHub
+
 # - inc/
 #     - *.h
 # - src/
@@ -12,11 +14,11 @@ SOURCES := $(wildcard src/*.c src/*.cpp)
 OBJECTS := $(patsubst src%,obj%, $(patsubst %.c,%.o, $(patsubst %.cpp,%.o,$(SOURCES))))
 
 INCLUDE := -I.
-LIBPATH :=
+LIBPATH := -pthread
 LIBS :=
 
 FLAGS := -Wall
-CCFLAGS := $(FLAGS) -std=c99
+CCFLAGS := $(FLAGS) -std=c99 
 CXXFLAGS := $(FLAGS)
 
 CC := gcc
