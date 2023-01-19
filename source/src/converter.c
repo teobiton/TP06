@@ -24,9 +24,11 @@ void *converter (void * arg)
 
     /* Wait for activation */
     sem_wait (&sem_number);
-
+    printf("Received %d\n", pushed_number);
     /* Get the translated pushed number */
+    printf("Translated digit :%s\n", translated_digits[pushed_number]);
     translated_pushed_number = translated_digits[pushed_number];
+    printf("translated pushed number: %s\n", translated_pushed_number);
 
     /* Send the translated digit */
     if ( mq_send(msgQ, translated_pushed_number, sizeof translated_pushed_number, 0) == -1) {

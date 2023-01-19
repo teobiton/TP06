@@ -20,6 +20,9 @@ static dict_t SPANISH = {"Uno", "Dos", "Tres", "Cuatro", "Cinco", "Seis", "Siete
 void *traduction (void * arg)
 {
 
+  /* Default value of translated digits */
+  translated_digits = &ENGLISH;
+  
   while (1) {
 
     /* Wait for activation */
@@ -43,6 +46,8 @@ void *traduction (void * arg)
         translated_digits = &ENGLISH;
         break;
     }
+
+    printf("%s", translated_digits[0]);
   }
 
   /* Exit the thread */

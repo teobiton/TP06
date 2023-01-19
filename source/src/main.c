@@ -5,6 +5,8 @@
 #include <unistd.h>
 #include <stdint.h>
 #include <mqueue.h> 
+#include <fcntl.h>
+#include <errno.h>
 
 /* user inludes */
 #include "../inc/languages.h"
@@ -32,7 +34,11 @@ int main(void)
     sem_init(&sem_language, 0, 0);
 
     /* message queue init */
-    msgQ = mq_open("msgQ", O_CREAT | O_RDWR);
+    msgQ = mq_open("/msgQ2", O_CREAT | O_RDWR);
+
+    if (msgQ == -1) {
+        perror("mq_open() failed.");
+    }
 
     /* thread creation */
     if (pthread_create(&th_reader, NULL, (void *)reader, NULL) < 0)
