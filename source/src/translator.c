@@ -9,12 +9,10 @@
 /* Extern variables declaration */
 extern sem_t sem_language;
 extern char active_language;
+extern dict_t * translated_digits;
 
 void *traduction (void * arg)
 {
-  
-  /* Private variable declaration */
-  dict_t * translated_digits;
 
   while (1) {
 
