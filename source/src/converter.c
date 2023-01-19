@@ -3,8 +3,7 @@
 #include <pthread.h>
 #include <semaphore.h>
 #include <stdint.h>
-#include <fcntl.h> /* For O_* constants */
-#include <sys/stat.h> /* For mode constants */
+#include <errno.h>
 #include <mqueue.h> 
 
 /* Get the supported languages */
@@ -30,7 +29,9 @@ void *converter (void * arg)
     translated_pushed_number = translated_digits[pushed_number];
 
     /* Send the translated digit */
-    mq_send(msgQ, &translated_pushed_number, sizeof translated_pushed_number, 0);
+    if ( mq_send(msgQ, &translated_pushed_number, sizeof translated_pushed_number, 0) == -1) {
+        perror("mq_send() failed.");
+    }
 
   }
 
