@@ -12,6 +12,6 @@ void read_in (void){
 
     c = getchar();
 
-    printf("in char : %c",c);
+    printf("In char : %c",c);
 }
 
