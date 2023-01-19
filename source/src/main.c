@@ -3,12 +3,13 @@
 #include <pthread.h>
 #include <semaphore.h>
 #include <unistd.h>
+#include <stdint.h>
 
 /* user inludes */
-#include "../inc/reader.h";
-#include "../inc/traduction.h";
-#include "../inc/printer.h";
-#include "../inc/converter.h";
+#include "../inc/reader.h"
+#include "../inc/translator.h"
+#include "../inc/printer.h"
+#include "../inc/converter.h"
 
 /* global shared ressources */
 char active_language;

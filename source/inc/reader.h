@@ -1,2 +1,2 @@
 
-void *reader(void);
+void *reader(void *arg);

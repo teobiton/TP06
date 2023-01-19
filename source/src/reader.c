@@ -11,7 +11,7 @@ extern sem_t sem_number;
 extern sem_t sem_language;
 
 
-void *reader(void)
+void *reader(void * arg)
 {
     char c;
 
